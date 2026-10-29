@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="fvelezIESS.MainPage"
+             Title="Aporte IESS">
+
+    <ContentPage.Resources>
+        <Style x:Key="EntradaInvalida" TargetType="Entry">
+            <Setter Property="TextColor" Value="#DC2626" />
+        </Style>
+        <Style x:Key="EntradaValida" TargetType="Entry">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="12" MaximumWidthRequest="500">
+
+            <!-- TÍTULO -->
+            <Label Text="Cálculo de Aporte al IESS"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,0,0,5" />
+
+            <Label Text="Aporte personal del afiliado: 9,45% del salario"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,15" />
+
+            <!-- NOMBRE -->
+            <Label Text="Nombre:" />
+            <Entry x:Name="txtNombre" Placeholder="Ingrese su nombre" MaxLength="40">
+                <Entry.Behaviors>
+                    <toolkit:TextValidationBehavior
+                        RegexPattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
+                        InvalidStyle="{StaticResource EntradaInvalida}"
+                        ValidStyle="{StaticResource EntradaValida}"
+                        Flags="ValidateOnValueChanged" />
+                </Entry.Behaviors>
+            </Entry>
+
+            <!-- APELLIDO -->
+            <Label Text="Apellido:" />
+            <Entry x:Name="txtApellido" Placeholder="Ingrese su apellido" MaxLength="40">
+                <Entry.Behaviors>
+                    <toolkit:TextValidationBehavior
+                        RegexPattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$"
+                        InvalidStyle="{StaticResource EntradaInvalida}"
+                        ValidStyle="{StaticResource EntradaValida}"
+                        Flags="ValidateOnValueChanged" />
+                </Entry.Behaviors>
+            </Entry>
+
+            <!-- EDAD: solo números enteros -->
+            <Label Text="Edad:" />
+            <Entry x:Name="txtEdad"
+                   Placeholder="Solo números"
+                   Keyboard="Numeric"
+                   MaxLength="3"
+                   TextChanged="OnEdadTextChanged" />
+
+            <!-- SALARIO: solo números (con decimales opcionales) -->
+            <Label Text="Salario mensual (USD):" />
+            <Entry x:Name="txtSalario"
+                   Placeholder="Ej: 470.00"
+                   Keyboard="Numeric"
+                   MaxLength="10"
+                   TextChanged="OnSalarioTextChanged" />
+
+            <!-- BOTÓN -->
+            <Button x:Name="btnCalcular"
+                    Text="Calcular Aporte"
+                    Clicked="OnCalcularClicked"
+                    Margin="0,20,0,0"
+                    BackgroundColor="#0F766E"
+                    TextColor="White" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
