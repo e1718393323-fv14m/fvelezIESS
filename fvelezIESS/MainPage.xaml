@@ -17,7 +17,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="12" MaximumWidthRequest="500">
 
-            <!-- TÍTULO -->
+     
             <Label Text="Cálculo de Aporte al IESS"
                    FontSize="28"
                    FontAttributes="Bold"
@@ -30,7 +30,7 @@
                    HorizontalOptions="Center"
                    Margin="0,0,0,15" />
 
-            <!-- NOMBRE -->
+
             <Label Text="Nombre:" />
             <Entry x:Name="txtNombre" Placeholder="Ingrese su nombre" MaxLength="40">
                 <Entry.Behaviors>
@@ -42,7 +42,6 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <!-- APELLIDO -->
             <Label Text="Apellido:" />
             <Entry x:Name="txtApellido" Placeholder="Ingrese su apellido" MaxLength="40">
                 <Entry.Behaviors>
@@ -54,7 +53,7 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <!-- EDAD: solo números enteros -->
+      
             <Label Text="Edad:" />
             <Entry x:Name="txtEdad"
                    Placeholder="Solo números"
@@ -62,7 +61,6 @@
                    MaxLength="3"
                    TextChanged="OnEdadTextChanged" />
 
-            <!-- SALARIO: solo números (con decimales opcionales) -->
             <Label Text="Salario mensual (USD):" />
             <Entry x:Name="txtSalario"
                    Placeholder="Ej: 470.00"
@@ -70,7 +68,6 @@
                    MaxLength="10"
                    TextChanged="OnSalarioTextChanged" />
 
-            <!-- BOTÓN -->
             <Button x:Name="btnCalcular"
                     Text="Calcular Aporte"
                     Clicked="OnCalcularClicked"
